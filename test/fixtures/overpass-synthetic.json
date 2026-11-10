@@ -1,0 +1,25 @@
+{
+  "_comment": "Synthetic Overpass response for tests. Invented ids and places; not copied from OpenStreetMap.",
+  "elements": [
+    { "type": "node", "id": 9000000001, "lat": 35.21, "lon": -80.84,
+      "tags": { "amenity": "place_of_worship", "religion": "christian", "denomination": "roman_catholic",
+        "name": "St. Synthetic Church", "addr:housenumber": "12", "addr:street": "Fixture Ave",
+        "addr:city": "Charlotte", "addr:state": "NC", "addr:postcode": "28202",
+        "website": "example.org/st-synthetic", "wheelchair": "yes", "wikidata": "Q999999901",
+        "service_times": "Su 09:00,11:00; Sa 17:00" } },
+    { "type": "way", "id": 9000000002, "center": { "lat": 35.22, "lon": -80.85 },
+      "tags": { "amenity": "place_of_worship", "religion": "christian", "denomination": "ukrainian_greek_catholic",
+        "name": "Synthetic Ukrainian Catholic Church", "addr:country": "us" } },
+    { "type": "node", "id": 9000000003, "lat": 35.23, "lon": -80.86,
+      "tags": { "amenity": "place_of_worship", "religion": "christian", "denomination": "old_catholic",
+        "name": "Synthetic Old Catholic Church" } },
+    { "type": "node", "id": 9000000004, "lat": 35.24, "lon": -80.87,
+      "tags": { "amenity": "place_of_worship", "religion": "christian", "denomination": "catholic" } },
+    { "type": "node", "id": 9000000005, "lat": 35.25, "lon": -80.88,
+      "tags": { "amenity": "place_of_worship", "religion": "christian", "denomination": "roman_catholic;greek_catholic",
+        "name": "Synthetic Shared Church", "website": "not a url" } },
+    { "type": "relation", "id": 9000000006, "center": { "lat": 35.26, "lon": -80.89 },
+      "tags": { "amenity": "place_of_worship", "religion": "christian", "denomination": "polish_catholic",
+        "name": "Synthetic Polish Catholic Church" } }
+  ]
+}

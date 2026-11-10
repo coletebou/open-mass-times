@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      dev-dependencies:
+        dependency-type: development
+    # typescript-eslint supports TypeScript < 6.1 (2026-11); bump together.
+    ignore:
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Open Mass Times</title>
+    <meta name="description" content="Find Catholic Mass, confession and adoration times near you. Open source, open data." />
+    <meta name="theme-color" content="#1f4e8c" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f4e8c'/%3E%3Cpath d='M14 6h4v6h6v4h-6v10h-4V16H8v-4h6z' fill='%23faf7f0'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="panel">
+        <header class="brand">
+          <h1><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M14 6h4v6h6v4h-6v10h-4V16H8v-4h6z" fill="#faf7f0"/></svg> Open Mass Times</h1>
+          <p>Mass, confession and adoration near you. Open data, open source.</p>
+        </header>
+
+        <form id="search" class="search" role="search">
+          <div class="search-row">
+            <input id="q" type="search" name="q" placeholder="Church name or city" aria-label="Search churches by name or city" autocomplete="off" />
+            <button type="submit">Search</button>
+          </div>
+          <button type="button" id="locate" class="link-button">◎ Use my location</button>
+        </form>
+
+        <section class="filters" aria-label="Filters">
+          <div class="chips" id="day-chips" role="group" aria-label="Day">
+            <button type="button" data-day="today">Today</button>
+            <button type="button" data-day="tomorrow">Tomorrow</button>
+            <button type="button" data-day="sunday">Sunday</button>
+            <input type="date" id="date" aria-label="Pick a date" />
+          </div>
+
+          <div class="row">
+            <label>Time
+              <select id="time">
+                <option value="any">Any time</option>
+                <option value="morning">Morning (before noon)</option>
+                <option value="afternoon">Afternoon (noon–5 pm)</option>
+                <option value="evening">Evening (after 5 pm)</option>
+              </select>
+            </label>
+            <label class="check"><input type="checkbox" id="upcoming" /> Still to come</label>
+          </div>
+
+          <fieldset class="types">
+            <legend>Show</legend>
+            <label class="check"><input type="checkbox" name="type" value="mass" checked /> Mass</label>
+            <label class="check"><input type="checkbox" name="type" value="confession" checked /> Confession</label>
+            <label class="check"><input type="checkbox" name="type" value="adoration" checked /> Adoration</label>
+            <label class="check"><input type="checkbox" name="type" value="devotion" /> Devotions &amp; Hours</label>
+          </fieldset>
+
+          <div class="row">
+            <label>Language <select id="language"><option value="">Any language</option></select></label>
+          </div>
+
+          <details class="more">
+            <summary>Rite and form</summary>
+            <div class="row">
+              <label>Rite <select id="rite"><option value="">Any rite</option></select></label>
+              <label>Form <select id="form"><option value="">Any form</option></select></label>
+            </div>
+          </details>
+        </section>
+
+        <div id="banner"></div>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+        <section id="results" class="results" aria-label="Service times"></section>
+        <section id="detail" class="detail" aria-label="Church details" hidden></section>
+
+        <footer class="foot">
+          <a href="https://github.com/coletebou/open-mass-times">Open source</a> (Apache-2.0) ·
+          data <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a> ·
+          <a href="https://github.com/coletebou/open-mass-times/blob/master/docs/API.md">API</a> ·
+          <a href="https://github.com/coletebou/open-mass-times/blob/master/SOURCES.md">Sources</a>
+          <br />Times change: confirm with the parish before you travel.
+        </footer>
+      </aside>
+      <main id="map" class="map" aria-label="Map of churches"></main>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

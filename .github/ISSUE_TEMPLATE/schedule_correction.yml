@@ -1,0 +1,54 @@
+name: Schedule or correction
+description: Add a parish's schedule, or correct times that are wrong or missing.
+title: "Correction: "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you! Please give the times **from the parish itself** (website, bulletin, sign, staff) or from attending yourself.
+        Please **don't** copy from MassTimes.org or any other directory or app. We can't use that data. See [SOURCES.md](https://github.com/coletebou/open-mass-times/blob/master/SOURCES.md).
+  - type: input
+    id: church
+    attributes:
+      label: Church
+      description: Name and city, or the church id from the app (the "Suggest a correction" link fills this in).
+      placeholder: "St. Ann Catholic Church, Charlotte NC (ch_osm-way-917875000)"
+    validations:
+      required: true
+  - type: textarea
+    id: schedule
+    attributes:
+      label: Correct schedule or change
+      description: Days, times, language, and anything else that matters (vigil, Latin/1962 Missal, Byzantine, by appointment, summer schedule...).
+      placeholder: |
+        Saturday 5:00 PM vigil (English)
+        Sunday 8:00, 10:30 AM (English), 1:00 PM (Spanish)
+        Confession: Saturday 3:30-4:30 PM
+        Starting December 1, the 6 PM Sunday Mass moves to 5 PM.
+    validations:
+      required: true
+  - type: dropdown
+    id: source
+    attributes:
+      label: Where does this come from?
+      options:
+        - I work for the parish
+        - The parish website (please paste the link below)
+        - The parish bulletin or newsletter
+        - A sign or notice at the church
+        - I attend / I called the parish office
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link (if any)
+      description: The parish page or bulletin you used.
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Permission
+      options:
+        - label: I dedicate the information in this submission to the public domain under CC0 1.0. It comes from the parish itself or my own attendance, not from MassTimes.org or another directory, website or app.
+          required: true

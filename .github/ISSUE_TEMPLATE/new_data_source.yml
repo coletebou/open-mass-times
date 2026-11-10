@@ -1,0 +1,40 @@
+name: New data source
+description: Propose a source of parish or schedule data (a diocesan feed, an open dataset, ...).
+title: "Source: "
+labels: ["data", "licensing"]
+body:
+  - type: markdown
+    attributes:
+      value: Licensing has to be settled **before** anything is imported. See [SOURCES.md](https://github.com/coletebou/open-mass-times/blob/master/SOURCES.md).
+  - type: input
+    id: source
+    attributes:
+      label: Source and link
+      placeholder: "Diocese of Example parish directory, https://..."
+    validations:
+      required: true
+  - type: textarea
+    id: contents
+    attributes:
+      label: What data it has
+      description: Locations? Schedules? How many parishes, which area, how often updated?
+    validations:
+      required: true
+  - type: textarea
+    id: terms
+    attributes:
+      label: Licence or terms
+      description: Quote or link the licence or terms of use. Have you asked the owner for permission? Paste their reply if you have it.
+    validations:
+      required: true
+  - type: dropdown
+    id: permission
+    attributes:
+      label: Permission status
+      options:
+        - Open licence compatible with ODbL (e.g. CC0, ODbL, CC BY)
+        - Written permission received
+        - Permission requested, waiting
+        - Not asked yet
+    validations:
+      required: true

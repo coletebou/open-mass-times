@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - name: Smoke test the production server
+        run: |
+          npm run db:seed:sample
+          PORT=8787 npm start &
+          for i in $(seq 1 30); do curl -fsS http://localhost:8787/api/v1/health && break; sleep 1; done
+          curl -fsS "http://localhost:8787/api/v1/services?church=ch_sample-cathedral&date=2026-11-15" | grep -q '"serviceType":"mass"'
+          curl -fsS http://localhost:8787/ | grep -q '<div class="app">'

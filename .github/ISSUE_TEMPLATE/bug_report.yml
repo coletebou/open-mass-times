@@ -1,0 +1,25 @@
+name: Bug report
+description: Something in the app or API doesn't work.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: A URL from the app (it includes your filters and map position) or an API request is ideal.
+      placeholder: |
+        1. Open http://localhost:5173/?lat=...&day=sunday
+        2. ...
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "Browser / OS, or Node version and commit for local runs"

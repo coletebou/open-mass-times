@@ -1,0 +1,47 @@
+{
+  "name": "open-mass-times",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Open-source, open-data finder for Catholic Mass, confession and adoration times.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coletebou/open-mass-times.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,green \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "node --watch src/server.ts",
+    "dev:web": "vite",
+    "build": "vite build",
+    "start": "node src/server.ts",
+    "db:migrate": "node src/cli/migrate.ts",
+    "db:seed:sample": "node src/cli/seed.ts data/sample/sample-data.json",
+    "import:osm": "node src/cli/import-osm.ts",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p web",
+    "test": "vitest run",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.6",
+    "hono": "^4.13.17",
+    "leaflet": "^1.9.4",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/leaflet": "^1.9.22",
+    "@types/node": "^24.19.2",
+    "concurrently": "^10.0.7",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.72.2",
+    "vite": "^8.3.7",
+    "vitest": "^5.1.0"
+  }
+}

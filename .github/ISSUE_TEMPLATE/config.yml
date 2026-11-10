@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security issue, a conduct concern, or a private data request
+    url: https://github.com/coletebou/open-mass-times/security/advisories/new
+    about: Private to the maintainers. Start the title with "Security:", "Conduct:" or "Data:".
+  - name: Fix a church's location or name in OpenStreetMap
+    url: https://www.openstreetmap.org/
+    about: Church locations come from OpenStreetMap. Fixing them there helps every map, and we re-import.

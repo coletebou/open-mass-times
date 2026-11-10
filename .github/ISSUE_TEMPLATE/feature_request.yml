@@ -1,0 +1,19 @@
+name: Feature request
+description: Suggest an improvement.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve, and for whom?
+      description: e.g. "Travellers can't find a Sunday Mass in English abroad."
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
