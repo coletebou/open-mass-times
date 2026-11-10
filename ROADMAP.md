@@ -26,27 +26,27 @@ show parishioners.
 
 **Good first issues**
 - [ ] Holy-day rules for another country (Mexico, the Philippines, England &
-      Wales, Ireland, Australia, ...)
-- [ ] Download a church's schedule as a calendar (`.ics`)
-- [ ] "Next Mass near me" shortcut
-- [ ] Look up each church's time zone from its coordinates in the OSM importer
-- [ ] Show a "may be out of date" badge on times not verified for 12 months
-- [ ] Collapsible filters on small screens
-- [ ] Spanish translation of the web app (with a small i18n layer)
-- [ ] OpenAPI 3.1 description of `/api/v1`
-- [ ] Dockerfile for self-hosting
+      Wales, Ireland, Australia, ...) ([#2](https://github.com/coletebou/open-mass-times/issues/2))
+- [ ] Download a church's schedule as a calendar (`.ics`) ([#3](https://github.com/coletebou/open-mass-times/issues/3))
+- [ ] "Next Mass near me" shortcut ([#4](https://github.com/coletebou/open-mass-times/issues/4))
+- [ ] Look up each church's time zone from its coordinates in the OSM importer ([#5](https://github.com/coletebou/open-mass-times/issues/5))
+- [ ] Show a "may be out of date" badge on times not verified for 12 months ([#6](https://github.com/coletebou/open-mass-times/issues/6))
+- [ ] Collapsible filters on small screens ([#7](https://github.com/coletebou/open-mass-times/issues/7))
+- [ ] Spanish translation of the web app (with a small i18n layer) ([#8](https://github.com/coletebou/open-mass-times/issues/8))
+- [ ] OpenAPI 3.1 description of `/api/v1` ([#9](https://github.com/coletebou/open-mass-times/issues/9))
+- [ ] Dockerfile for self-hosting ([#10](https://github.com/coletebou/open-mass-times/issues/10))
 
 **Bigger items**
 - [ ] Draft schedules from OSM `service_times` tags (opening_hours syntax),
-      marked unverified
-- [ ] Wikidata cross-referencing for imported churches (CC0)
+      marked unverified ([#11](https://github.com/coletebou/open-mass-times/issues/11))
+- [ ] Wikidata cross-referencing for imported churches (CC0) ([#12](https://github.com/coletebou/open-mass-times/issues/12))
 - [ ] Bulk data downloads (SQLite + GeoJSON, weekly), so anyone can use the
-      ODbL data without scraping the API
+      ODbL data without scraping the API ([#13](https://github.com/coletebou/open-mass-times/issues/13))
 - [ ] Before any public deploy: rate limiting and caching, production map tiles
       (OpenFreeMap or self-hosted Protomaps; the OSM Foundation tile servers
-      are not for production traffic), and an uptime check
+      are not for production traffic), and an uptime check ([#14](https://github.com/coletebou/open-mass-times/issues/14))
 - [ ] Project contact alias for conduct and data requests (replaces the
-      GitHub-form-only channel)
+      GitHub-form-only channel) ([#15](https://github.com/coletebou/open-mass-times/issues/15))
 
 ## v0.2: contributions in the app
 
