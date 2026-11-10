@@ -383,17 +383,25 @@ function renderDetail(d: ChurchDetail) {
   detailEl.scrollIntoView({ block: 'start' });
 }
 
+// Bumped on every detail request and on "Back", so a slow response for an
+// earlier church can never replace the one the user asked for last.
+let detailSeq = 0;
+
 async function showChurch(id: string) {
+  const seq = ++detailSeq;
   setStatus('Loading church…');
   try {
-    renderDetail(await fetchChurch(id));
+    const detail = await fetchChurch(id);
+    if (seq !== detailSeq) return;
+    renderDetail(detail);
     setStatus('');
   } catch (err) {
-    setStatus((err as Error).message, true);
+    if (seq === detailSeq) setStatus((err as Error).message, true);
   }
 }
 
 function backToResults() {
+  detailSeq++;
   detailEl.hidden = true;
   resultsEl.hidden = false;
 }

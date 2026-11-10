@@ -107,7 +107,10 @@ const HolyDaysQuery = z.object({
 });
 
 function parseQuery<T extends z.ZodType>(schema: T, query: Record<string, string>): z.infer<T> {
-  const result = schema.safeParse(query);
+  // A blank parameter (`?lat=&lon=`, as HTML forms send) means "not given".
+  // Without this, z.coerce.number() would read "" as 0 and search at (0, 0).
+  const given = Object.fromEntries(Object.entries(query).filter(([, value]) => value.trim() !== ''));
+  const result = schema.safeParse(given);
   if (!result.success) {
     throw new HTTPException(400, {
       res: Response.json(

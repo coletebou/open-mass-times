@@ -61,3 +61,6 @@ DATABASE_PATH=data/scratch.sqlite npm run import:osm -- --bbox s,w,n,e --country
   `liturgical.ts`).
 - Deleting the SQLite file while a server is running leaves the server on the
   old (deleted) file; restart it.
+- The SQL `CHECK`s on schedule times (`GLOB '[0-2][0-9]:[0-5][0-9]'`) accept
+  hours 24-29; the zod schemas are the real gate. Write records only through
+  `upsert`/`loadDataFile` after zod validation, never with raw SQL.
