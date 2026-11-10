@@ -86,6 +86,12 @@ describe('GET /api/v1/services', () => {
     ]);
   });
 
+  it('treats a blank optional parameter as not given', async () => {
+    const { status, body } = await get(`/api/v1/services?church=ch_sample-oratory&date=&type=&after=`);
+    expect(status).toBe(200);
+    expect(body.results[0]).toMatchObject({ date: '2026-11-09', startTime: '07:00' }); // today, all types
+  });
+
   it('spans several days', async () => {
     const { body } = await get(`/api/v1/services?church=ch_sample-oratory&date=2026-11-14&days=2&type=mass`);
     expect(summary(body.results)).toEqual(['2026-11-14 07:00 mass ch_sample-oratory', '2026-11-15 09:30 mass ch_sample-oratory']);
@@ -99,6 +105,11 @@ describe('GET /api/v1/services', () => {
     [`/api/v1/services?${CHARLOTTE}&type=bingo`, 400],
     [`/api/v1/services?${CHARLOTTE}&after=7pm`, 400],
     ['/api/v1/services?church=ch_nope-nope', 404],
+    // Blank values are "not given", never coerced to 0 (which would search at 0°N 0°E).
+    ['/api/v1/services?lat=&lon=', 400],
+    ['/api/v1/services?lat=%20&lon=0', 400],
+    ['/api/v1/churches?lat=&lon=', 400],
+    ['/api/v1/holy-days?year=', 400],
   ])('%s -> %i', async (path, status) => {
     const res = await get(path);
     expect(res.status).toBe(status);
