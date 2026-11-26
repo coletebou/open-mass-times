@@ -13,7 +13,8 @@ the project is; this file covers how not to break it.
   in `data/sample/` is fictional and must stay obviously so ("(sample)" in names).
 - Don't run the OSM importer in CI or in loops; Overpass is a shared volunteer service.
 - No personal email addresses in files or commit metadata.
-- Prettier is not used here; don't add it or reformat files. ESLint is the linter.
+- Prettier is not used here; don't add it or reformat files. oxlint is the linter
+  (`.oxlintrc.json`); existing `eslint-disable` comments still work.
 - Code is Apache-2.0, data is ODbL-1.0. Don't add dependencies with
   incompatible licences (GPL/AGPL in the runtime bundle, NC/ND data).
 
@@ -58,7 +59,8 @@ DATABASE_PATH=data/scratch.sqlite npm run import:osm -- --bbox s,w,n,e --country
   exact beta version; bump it deliberately and re-run `npm run typecheck`. It follows
   TypeScript 7 rules, which are stricter than 6 in places: give a `let` that is assigned in
   branches an explicit type, or a later call site can become its contextual type (TS2353).
-- The `typescript` package stays at 6.0.x because typescript-eslint doesn't support 7 yet.
+- The `typescript` package is only there for editors (nothing in the toolchain imports it).
+  CI and `npm run typecheck` use tsrs, so trust those over an editor running TypeScript 6.
 - `node:sqlite` binds named parameters from plain objects; `undefined` is not a
   valid value (use `null`).
 - `holy_day_of_obligation` schedules never expand onto Sundays, by design (see

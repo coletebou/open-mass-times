@@ -67,8 +67,8 @@ npm run dev              # http://localhost:5173
   `.ts` extension, and don't use `enum`, `namespace` or constructor parameter
   properties. `npm run typecheck` will tell you.
 - **Formatting:** follow the surrounding code (2 spaces, single quotes,
-  semicolons). The repo deliberately has no auto-formatter; ESLint is the
-  linter.
+  semicolons). The repo deliberately has no auto-formatter; oxlint is the
+  linter (`.oxlintrc.json`).
 - **Schema changes:** update `src/domain/model.ts`, add a new numbered file in
   `src/db/migrations/` (never edit one that has shipped), and update
   [docs/DATA_MODEL.md](docs/DATA_MODEL.md).
