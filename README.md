@@ -83,7 +83,7 @@ almost nothing to host, and that won't need rewriting at 200,000 parishes.
 | Database | **SQLite via built-in `node:sqlite`** | One file and no server to run. Nothing native to compile, since SQLite ships inside Node. FTS5 gives full-text search. The ~220k Catholic parishes worldwide fit easily, and the file itself can become the open-data download. |
 | Validation | **[zod](https://zod.dev)** | One schema per record type gives runtime validation (seed files, imports, API queries) and the TypeScript types, with no drift. |
 | Web app | **Vite + plain TypeScript + [Leaflet](https://leafletjs.com)** | A map and a list don't need a framework: there's nothing to learn before contributing, and the bundle is ~50 KB gzipped. Leaflet is the most widely known open map library, and tiles are configurable. |
-| Tests / lint / CI | **Vitest, ESLint + typescript-eslint, GitHub Actions** | Standard, fast and free for a public repo. |
+| Tests / lint / CI | **Vitest, [oxlint](https://oxc.rs/docs/guide/usage/linter), GitHub Actions** | Fast and free for a public repo. |
 
 Considered and set aside for v0:
 - **Next.js/React**: too much machinery for one page.

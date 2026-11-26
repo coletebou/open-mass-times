@@ -21,7 +21,7 @@
     "db:migrate": "node src/cli/migrate.ts",
     "db:seed:sample": "node src/cli/seed.ts data/sample/sample-data.json",
     "import:osm": "node src/cli/import-osm.ts",
-    "lint": "eslint .",
+    "lint": "oxlint --report-unused-disable-directives",
     "typecheck": "tsrs --noEmit && tsrs --noEmit -p web",
     "test": "vitest run",
     "check": "npm run lint && npm run typecheck && npm test && npm run build"
@@ -33,15 +33,12 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
     "@types/leaflet": "^1.9.22",
     "@types/node": "^24.19.2",
     "concurrently": "^10.0.7",
-    "eslint": "^10.14.0",
-    "globals": "^17.14.0",
+    "oxlint": "1.95.0",
     "tsrs": "7.1.0-beta.tsrs5",
     "typescript": "~6.0.3",
-    "typescript-eslint": "^8.72.2",
     "vite": "^8.3.7",
     "vitest": "^5.1.0"
   }
