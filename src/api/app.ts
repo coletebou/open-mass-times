@@ -34,6 +34,7 @@ import {
   getParish,
   schedulesForChurches,
   searchChurches,
+  type ChurchWithDistance,
 } from '../db/repository.ts';
 import { haversineKm } from '../geo.ts';
 import { describeRecurrence, expandSchedules, overlapsTimeWindow } from '../recurrence/expand.ts';
@@ -221,7 +222,7 @@ export function createApp(db: DatabaseSync, opts: { now?: () => Date } = {}) {
   app.get('/api/v1/services', (c) => {
     const q = parseQuery(ServicesQuery, c.req.query());
 
-    let churches;
+    let churches: ChurchWithDistance[];
     if (q.church) {
       const one = getChurch(db, q.church);
       if (!one) throw notFound('church');

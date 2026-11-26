@@ -65,7 +65,7 @@ npm run dev              # http://localhost:5173
   `feat(api): add ICS export`, `fix(calendar): move Epiphany in Canada`.
 - **TypeScript**, strict mode. Node runs `.ts` directly, so: import with the
   `.ts` extension, and don't use `enum`, `namespace` or constructor parameter
-  properties. `tsc` will tell you.
+  properties. `npm run typecheck` will tell you.
 - **Formatting:** follow the surrounding code (2 spaces, single quotes,
   semicolons). The repo deliberately has no auto-formatter; ESLint is the
   linter.

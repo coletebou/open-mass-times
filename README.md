@@ -78,7 +78,7 @@ almost nothing to host, and that won't need rewriting at 200,000 parishes.
 
 | Piece | Choice | Why |
 | --- | --- | --- |
-| Runtime | **Node 24 + TypeScript, run directly** | Node 24 strips types natively, so the server has no build step and no `tsx`/`ts-node`. Types are still checked by `tsc` in CI. |
+| Runtime | **Node 24 + TypeScript, run directly** | Node 24 strips types natively, so the server has no build step and no `tsx`/`ts-node`. Types are still checked in CI, by [`tsrs`](https://github.com/oxc-project/tsrs) (a Rust port of the TypeScript 7 compiler). |
 | Web framework | **[Hono](https://hono.dev)** | Small and built on web standards (`Request`/`Response`). The same app runs on Node, Cloudflare Workers, Deno or Bun, which keeps hosting cheap and open. |
 | Database | **SQLite via built-in `node:sqlite`** | One file and no server to run. Nothing native to compile, since SQLite ships inside Node. FTS5 gives full-text search. The ~220k Catholic parishes worldwide fit easily, and the file itself can become the open-data download. |
 | Validation | **[zod](https://zod.dev)** | One schema per record type gives runtime validation (seed files, imports, API queries) and the TypeScript types, with no drift. |

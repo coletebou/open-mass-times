@@ -22,7 +22,7 @@
     "db:seed:sample": "node src/cli/seed.ts data/sample/sample-data.json",
     "import:osm": "node src/cli/import-osm.ts",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit && tsc --noEmit -p web",
+    "typecheck": "tsrs --noEmit && tsrs --noEmit -p web",
     "test": "vitest run",
     "check": "npm run lint && npm run typecheck && npm test && npm run build"
   },
@@ -39,6 +39,7 @@
     "concurrently": "^10.0.7",
     "eslint": "^10.14.0",
     "globals": "^17.14.0",
+    "tsrs": "7.1.0-beta.tsrs5",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.72.2",
     "vite": "^8.3.7",

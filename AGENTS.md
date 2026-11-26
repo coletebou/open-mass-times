@@ -54,7 +54,11 @@ DATABASE_PATH=data/scratch.sqlite npm run import:osm -- --bbox s,w,n,e --country
 - Node runs `.ts` files directly (type stripping): imports need the `.ts`
   extension, and `enum`, `namespace` and constructor parameter properties are
   not allowed (`erasableSyntaxOnly`).
-- TypeScript is pinned to 6.0.x because typescript-eslint doesn't support 7 yet.
+- Types are checked by `tsrs` (a Rust port of the TypeScript 7.1 compiler), pinned to an
+  exact beta version; bump it deliberately and re-run `npm run typecheck`. It follows
+  TypeScript 7 rules, which are stricter than 6 in places: give a `let` that is assigned in
+  branches an explicit type, or a later call site can become its contextual type (TS2353).
+- The `typescript` package stays at 6.0.x because typescript-eslint doesn't support 7 yet.
 - `node:sqlite` binds named parameters from plain objects; `undefined` is not a
   valid value (use `null`).
 - `holy_day_of_obligation` schedules never expand onto Sundays, by design (see
